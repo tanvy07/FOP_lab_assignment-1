@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int n, i, min = 1, max = 100;
+
+    // Seed random number generator
+    srand(time(0));
+
+    // Input
+    printf("Enter how many random numbers you want: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid input. Please enter a positive number.\n");
+        return 1;
+    }
+
+    printf("\nRandom Numbers between %d and %d:\n", min, max);
+
+    // Generate numbers in range [min, max]
+    for (i = 0; i < n; i++) {
+        int num = (rand() % (max - min + 1)) + min;
+        printf("%d ", num);
+    }
+
+    printf("\n");
+
+    return 0;
+}
