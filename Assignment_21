@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h> // For exit()
+
+int main() {
+    FILE *source_file, *destination_file;
+    int character;  // FIXED: should be int
+
+    source_file = fopen("source.txt", "r");
+    if (source_file == NULL) {
+        printf("Error: Cannot open source file.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    destination_file = fopen("destination.txt", "w");
+    if (destination_file == NULL) {
+        fclose(source_file);
+        printf("Error: Cannot open destination file.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Copy file content
+    while ((character = fgetc(source_file)) != EOF) {
+        fputc(character, destination_file);
+    }
+
+    printf("File copied successfully.\n");
+
+    fclose(source_file);
+    fclose(destination_file);
+
+    return 0;
+}
