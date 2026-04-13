@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <math.h>  // Required for sqrt()
+
+int main() {
+    int n, i, isPrime = 1;
+    int temp;  // To preserve original number
+    long long fact = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    temp = n; // Save original value
+
+    // Square root
+    printf("Square root = %.2f\n", sqrt(n));
+
+    // Square
+    printf("Square = %d\n", n * n);
+
+    // Cube
+    printf("Cube = %d\n", n * n * n);
+
+    // Prime check
+    if (n <= 1)
+        isPrime = 0;
+    else {
+        for(i = 2; i <= sqrt(n); i++) {  // optimized
+            if(n % i == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+    }
+
+    if(isPrime)
+        printf("Prime number\n");
+    else
+        printf("Not a prime number\n");
+
+    // Factorial
+    for(i = 1; i <= n; i++)
+        fact *= i;
+    printf("Factorial = %lld\n", fact);
+
+    // Prime factors
+    printf("Prime factors: ");
+    for(i = 2; i <= temp; i++) {
+        while(temp % i == 0) {
+            printf("%d ", i);
+            temp /= i;
+        }
+    }
+
+    return 0;
+}
