@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, eCount = 0, oCount = 0;
+
+    printf("Enter the number of integers (N): ");
+    scanf("%d", &n);
+
+    // Declare arrays
+    int arr[n], even[n], odd[n];
+
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Partitioning logic
+    for (i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0) {
+            even[eCount++] = arr[i];
+        } else {
+            odd[oCount++] = arr[i];
+        }
+    }
+
+    // Displaying results
+    printf("\nEven numbers: ");
+    for (i = 0; i < eCount; i++) {
+        printf("%d ", even[i]);
+    }
+
+    printf("\nOdd numbers: ");
+    for (i = 0; i < oCount; i++) {
+        printf("%d ", odd[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
