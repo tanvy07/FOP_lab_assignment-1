@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+long long factRec(int n){
+    if(n==0 || n==1)
+        return 1;
+    return n * factRec(n-1);
+}
+
+int main(){
+    int n, i;
+    long long fact=1;
+
+    printf("Enter number: ");
+    scanf("%d",&n);
+
+    for(i=1;i<=n;i++)
+        fact *= i;
+
+    printf("Factorial (Iterative) = %lld\n", fact);
+    printf("Factorial (Recursive) = %lld\n", factRec(n));
+
+    return 0;
+}
